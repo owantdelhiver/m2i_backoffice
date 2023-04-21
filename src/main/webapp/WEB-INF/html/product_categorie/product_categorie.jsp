@@ -11,12 +11,47 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="/WEB-INF/html/include/head.jsp" />
 <jsp:include page="/WEB-INF/html/include/nav.jsp"/>
-<p>Liste des catégories</p>
 
+<div class="container mt-5">
+    <h3>Liste des catégories</h3>
 
-<c:forEach items="${categories}" var="categorie">
-    <p>${categorie.name}</p>
-</c:forEach>
+    <div class="mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${categories}" var="categorie">
+                    <tr>
+                        <td>${categorie.name}</td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">Liste des catégories produits</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                <c:forEach items="${categories}" var="categorie">
+                    <tr>
+                        <td class="ms-3">${categorie.name}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <jsp:include page="/WEB-INF/html/include/footer.jsp" />
 
