@@ -9,49 +9,52 @@
 <jsp:useBean id="categories" scope="request" type="java.util.List"/>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="/WEB-INF/html/include/head.jsp" />
+<jsp:include page="/WEB-INF/html/include/head.jsp"/>
 <jsp:include page="/WEB-INF/html/include/nav.jsp"/>
 
 <div class="container mt-5">
-    <h3>Liste des catégories</h3>
-
-    <div class="mt-5">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${categories}" var="categorie">
-                    <tr>
-                        <td>${categorie.name}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
-
     <div class="card">
-        <h5 class="card-header">Liste des catégories produits</h5>
-        <div class="table-responsive text-nowrap">
-            <table class="table">
+        <div class="card-body">
+            <div class="d-flex">
+                <h5 class="card-title">Liste des catégories</h5>
+                <a class="ms-auto" href="#">New</a>
+            </div>
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped table-hover">
+                <colgroup>
+                    <col class="col-md-1">
+                    <col class="col-md-2">
+                    <col class="col-md-7">
+                    <col class="col-md-2">
+                </colgroup>
                 <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
-                <tbody class="table-border-bottom-0">
+                <tbody>
                 <c:forEach items="${categories}" var="categorie">
                     <tr>
-                        <td class="ms-3">${categorie.name}</td>
+                        <th>${categorie.id}</th>
+                        <td>${categorie.name}</td>
+                        <td>${categorie.description}</td>
+                        <td>
+                            <a href="#">edit</a>
+                            <a href="#">delete</a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+            <!-- End Table with stripped rows -->
+
         </div>
     </div>
 </div>
 
-<jsp:include page="/WEB-INF/html/include/footer.jsp" />
+<jsp:include page="/WEB-INF/html/include/footer.jsp"/>
 
