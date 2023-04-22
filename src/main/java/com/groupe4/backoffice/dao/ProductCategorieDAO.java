@@ -23,7 +23,8 @@ public class ProductCategorieDAO implements GenericDAO<ProductCategorie> {
 
     @Override
     public ProductCategorie fetchById(Long id) {
-        return null;
+        //TODO
+        return new ProductCategorie(1L, "categorie 1", "ma super categorie");
     }
 
     @Override
