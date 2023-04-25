@@ -1,7 +1,6 @@
 package com.groupe4.backoffice.servlet.product_categorie;
 
 import com.groupe4.backoffice.model.ProductCategorie;
-import com.groupe4.backoffice.service.ProductCategorieService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
