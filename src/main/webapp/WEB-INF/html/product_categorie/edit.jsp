@@ -17,12 +17,8 @@
 
   <form class="mt-5" method="post" action="${action}">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="libelle" placeholder="categorie" value="${categorie.name}">
-      <label for="libelle">Libelle</label>
-    </div>
-    <div class="form-floating">
-      <textarea class="form-control" id="description" placeholder="description">${categorie.description}</textarea>
-      <label for="description">Description</label>
+      <input type="text" class="form-control" id="name" placeholder="categorie" value="${categorie.name}">
+      <label for="name">Libelle</label>
     </div>
     <div class="d-flex justify-content-md-end">
       <button type="submit" class="btn btn-light mt-3">
