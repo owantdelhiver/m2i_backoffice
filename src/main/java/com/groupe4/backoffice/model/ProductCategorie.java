@@ -5,6 +5,11 @@ public class ProductCategorie {
     private String name;
     private String description;
 
+    public ProductCategorie() {
+        this.name = "";
+        this.description = "";
+    }
+
     public ProductCategorie(Long id, String name, String description) {
         this.id = id;
         this.name = name;

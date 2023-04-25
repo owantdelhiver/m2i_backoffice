@@ -11,7 +11,6 @@
 
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/commandes">Commandes</a></li>
             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/produits">Produits</a></li>
             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/product_categorie">Catégories</a></li>
             <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/connexion">Connexion</a></li>
