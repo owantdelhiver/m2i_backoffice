@@ -3,7 +3,7 @@ package com.groupe4.backoffice.dao;
 import java.util.List;
 
 public interface GenericDAO<T> {
-    boolean create();
+    void create(T obj);
     List<T> fetchAll();
     T fetchById(Long id);
     void update(T obj);

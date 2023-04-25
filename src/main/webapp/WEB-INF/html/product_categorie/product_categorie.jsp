@@ -40,6 +40,7 @@
                 <tr>
                     <th>#</th>
                     <th>Nom</th>
+                    <th></th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -48,6 +49,7 @@
                     <tr>
                         <th>${categorie.id}</th>
                         <td>${categorie.name}</td>
+                        <td></td>
                         <td>
                             <div class="btn-group">
                                 <a href="#" class="btn btn-warning">

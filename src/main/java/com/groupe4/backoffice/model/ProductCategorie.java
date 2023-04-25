@@ -5,7 +5,11 @@ public class ProductCategorie {
     private String name;
 
     public ProductCategorie() {
-        this.name = "";
+        name = "";
+    }
+
+    public ProductCategorie(String name) {
+        this.name = name;
     }
 
     public ProductCategorie(Long id, String name) {
@@ -17,7 +21,15 @@ public class ProductCategorie {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

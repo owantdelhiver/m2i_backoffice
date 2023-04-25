@@ -13,4 +13,16 @@ public class ProductCategorieService {
     public static ProductCategorie fetchOneById(long id) {
         return new ProductCategorieDAO().fetchById(id);
     }
+
+    public static void create(ProductCategorie productCategorie) {
+        new ProductCategorieDAO().create(productCategorie);
+    }
+
+    public static void update(ProductCategorie productCategorie) {
+        new ProductCategorieDAO().update(productCategorie);
+    }
+
+    public static void delete(ProductCategorie productCategorie) {
+        new ProductCategorieDAO().delete(productCategorie);
+    }
 }
