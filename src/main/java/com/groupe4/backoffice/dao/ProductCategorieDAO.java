@@ -15,16 +15,16 @@ public class ProductCategorieDAO implements GenericDAO<ProductCategorie> {
     @Override
     public List<ProductCategorie> fetchAll() {
         List<ProductCategorie> categories = new ArrayList<>();
-        categories.add(new ProductCategorie(1L, "categorie 1", "ma super categorie"));
-        categories.add(new ProductCategorie(2L, "categorie 2", "ma super categorie"));
-        categories.add(new ProductCategorie(3L, "categorie 3", "ma super categorie"));
+        categories.add(new ProductCategorie(1L, "categorie 1"));
+        categories.add(new ProductCategorie(2L, "categorie 2"));
+        categories.add(new ProductCategorie(3L, "categorie 3"));
         return categories;
     }
 
     @Override
     public ProductCategorie fetchById(Long id) {
         //TODO
-        return new ProductCategorie(1L, "categorie 1", "ma super categorie");
+        return new ProductCategorie(1L, "categorie 1");
     }
 
     @Override
