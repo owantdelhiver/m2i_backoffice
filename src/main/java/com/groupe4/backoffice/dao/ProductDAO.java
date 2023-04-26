@@ -3,6 +3,7 @@ package com.groupe4.backoffice.dao;
 import com.groupe4.backoffice.model.DB;
 import com.groupe4.backoffice.model.Product;
 import com.groupe4.backoffice.model.ProductCategory;
+import com.groupe4.backoffice.utils.JsonFormater;
 import com.mysql.cj.xdevapi.JsonArray;
 import com.mysql.cj.xdevapi.JsonString;
 
@@ -25,7 +26,7 @@ public class ProductDAO implements GenericDAO<Product> {
             preparedStatement.setString(4, obj.getShort_description());
             preparedStatement.setString(5, obj.getDescription());
             preparedStatement.setInt(6, obj.getStock());
-            preparedStatement.setString(7, obj.getPicture_urlFormatJsonString());
+            preparedStatement.setString(7, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
             preparedStatement.setInt(8, Math.toIntExact(obj.getCategory().getId()));
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -53,7 +54,7 @@ public class ProductDAO implements GenericDAO<Product> {
 
     }
 
-//    public static void main(String[] args) {
-//        new ProductDAO().create(new Product(1L, "toto", 15, "short", "description", 2, Arrays.asList("First", "Second"), new ProductCategory(1L,"category")));
-//    }
+    public static void main(String[] args) {
+        new ProductDAO().create(new Product(1L, "toto", 15, "short", "description", 2, Arrays.asList("First", "Second"), new ProductCategory(1L,"category")));
+    }
 }

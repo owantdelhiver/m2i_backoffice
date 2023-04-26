@@ -99,12 +99,4 @@ public class Product {
     public void setCategory(ProductCategory category) {
         this.category = category;
     }
-
-    public String getPicture_urlFormatJsonString() {
-        JsonArray jsonArray = new JsonArray();
-        for (String url: this.getPicture_url()) {
-            jsonArray.addValue(new JsonString().setValue(url));
-        }
-        return jsonArray.toString();
-    }
 }
