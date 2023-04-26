@@ -1,9 +1,12 @@
 package com.groupe4.backoffice.model;
 
+import com.mysql.cj.xdevapi.JsonArray;
+import com.mysql.cj.xdevapi.JsonString;
+
 import java.util.List;
 
 public class Product {
-    private Long id;
+    private long id;
     private String name;
     private float price;
     private String short_description;
@@ -12,7 +15,7 @@ public class Product {
     private List<String> picture_url;
     private ProductCategory category;
 
-    public Product(Long id, String name, float price, String short_description, String description, int stock, List<String> picture_url, ProductCategory category) {
+    public Product(long id, String name, float price, String short_description, String description, int stock, List<String> picture_url, ProductCategory category) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -33,11 +36,11 @@ public class Product {
         this.category = category;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -95,5 +98,13 @@ public class Product {
 
     public void setCategory(ProductCategory category) {
         this.category = category;
+    }
+
+    public String getPicture_urlFormatJsonString() {
+        JsonArray jsonArray = new JsonArray();
+        for (String url: this.getPicture_url()) {
+            jsonArray.addValue(new JsonString().setValue(url));
+        }
+        return jsonArray.toString();
     }
 }
