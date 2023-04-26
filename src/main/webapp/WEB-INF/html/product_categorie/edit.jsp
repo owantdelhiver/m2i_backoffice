@@ -1,6 +1,6 @@
 <jsp:useBean id="action" scope="request" type="java.lang.String"/>
 <jsp:useBean id="title" scope="request" type="java.lang.String"/>
-<jsp:useBean id="categorie" scope="request" type="com.groupe4.backoffice.model.ProductCategorie"/>
+<jsp:useBean id="categorie" scope="request" type="com.groupe4.backoffice.model.ProductCategory"/>
 <%--
   Created by IntelliJ IDEA.
   User: owenb

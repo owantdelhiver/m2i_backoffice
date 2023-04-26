@@ -1,6 +1,6 @@
 package com.groupe4.backoffice.servlet.product_categorie;
 
-import com.groupe4.backoffice.model.ProductCategorie;
+import com.groupe4.backoffice.model.ProductCategory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +15,7 @@ public class ProductCategorieAddServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("title", "Nouvelle catégorie");
         req.setAttribute("action", req.getContextPath() + "/product_categorie/add");
-        req.setAttribute("categorie", new ProductCategorie());
+        req.setAttribute("categorie", new ProductCategory());
         req.getRequestDispatcher("/WEB-INF/html/product_categorie/edit.jsp").forward(req,resp);
     }
 

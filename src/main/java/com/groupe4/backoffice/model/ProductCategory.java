@@ -1,18 +1,18 @@
 package com.groupe4.backoffice.model;
 
-public class ProductCategorie {
+public class ProductCategory {
     private Long id;
     private String name;
 
-    public ProductCategorie() {
+    public ProductCategory() {
         name = "";
     }
 
-    public ProductCategorie(String name) {
+    public ProductCategory(String name) {
         this.name = name;
     }
 
-    public ProductCategorie(Long id, String name) {
+    public ProductCategory(Long id, String name) {
         this.id = id;
         this.name = name;
     }
