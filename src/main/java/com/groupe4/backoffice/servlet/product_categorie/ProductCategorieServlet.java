@@ -1,6 +1,6 @@
 package com.groupe4.backoffice.servlet.product_categorie;
 
-import com.groupe4.backoffice.model.ProductCategorie;
+import com.groupe4.backoffice.model.ProductCategory;
 import com.groupe4.backoffice.service.ProductCategorieService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductCategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<ProductCategorie> categories = ProductCategorieService.fetchAll();
+        List<ProductCategory> categories = ProductCategorieService.fetchAll();
         req.setAttribute("categories", categories);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/html/product_categorie/product_categorie.jsp");
