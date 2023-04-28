@@ -16,7 +16,7 @@
                 <li><a href="${pageContext.request.contextPath}/" class="nav-link px-2 text-dark">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/products" class="nav-link px-2 text-dark" >Product</a></li>
                 <li><a href="${pageContext.request.contextPath}/categories" class="nav-link px-2 text-dark" >Category</a></li>
-                <li><a href="${pageContext.request.contextPath}/" class="nav-link px-2 text-dark" >Logout</a></li>
+                <li><a href="${pageContext.request.contextPath}/logout" class="nav-link px-2 text-dark" >Logout</a></li>
             </ul>
         </div>
     </div>
