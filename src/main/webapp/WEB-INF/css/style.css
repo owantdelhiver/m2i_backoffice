@@ -65,6 +65,6 @@ html{
     padding-left: 4px;
 }
 
-.card-body {
+.card-body, .login-wrap {
     font-family: "Helvetica Neue Condensed", sans-serif;
 }

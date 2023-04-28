@@ -21,7 +21,7 @@
                 <form action="${pageContext.request.contextPath}/login" method="post">
                     <div class="form-floating mt-5 mb-5">
                         <input id="email" type="email" name="email" class="form-control" placeholder="name@example.com" required>
-                        <label for="email">email</label>
+                        <label for="email">Email</label>
                     </div>
                     <div class="form-floating mt-5 mb-5">
                         <input id="password" type="password" name ="password" class="form-control" placeholder="password" required>
