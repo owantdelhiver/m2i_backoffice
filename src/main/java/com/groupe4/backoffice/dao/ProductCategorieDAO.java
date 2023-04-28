@@ -16,7 +16,7 @@ public class ProductCategorieDAO implements GenericDAO<ProductCategory> {
     public void create(ProductCategory obj) {
         Connection connection = DB.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product_category(name) VALUES (?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product_category (name) VALUES (?)");
             preparedStatement.setString(1, obj.getName());
             preparedStatement.execute();
         } catch (SQLException e) {
