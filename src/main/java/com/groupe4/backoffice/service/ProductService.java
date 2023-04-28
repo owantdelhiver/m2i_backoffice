@@ -22,7 +22,7 @@ public class ProductService {
         new ProductDAO().update(product);
     }
 
-    public static int delete(Product product) {
+    public static void delete(Product product) {
         new ProductDAO().delete(product);
     }
 }
