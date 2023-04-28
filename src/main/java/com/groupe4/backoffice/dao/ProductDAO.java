@@ -78,8 +78,4 @@ public class ProductDAO implements GenericDAO<Product> {
     public void delete(Product obj) {
 
     }
-
-    public static void main(String[] args) {
-        System.out.println(new ProductDAO().fetchAll());
-    }
 }
