@@ -9,11 +9,10 @@ public class ProductService {
     public static List<Product> fetchAll() {
         return new ProductDAO().fetchAll();
     }
-
     public static Product fetchOneById(int id) {
         return new ProductDAO().fetchById((long) id);
     }
-
+    public static List<Product> fetchByNameOrId(String search) {return new ProductDAO().fetchByNameOrId(search);}
     public static void create(Product product) {
         new ProductDAO().create(product);
     }
