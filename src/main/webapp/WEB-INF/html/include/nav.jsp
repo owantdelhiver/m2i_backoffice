@@ -6,15 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid collapse navbar-collapse">
-
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/produits">Produits</a></li>
-            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/product_categorie">Catégories</a></li>
-            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/connexion">Connexion</a></li>
-            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/#">Déconnexion</a></li>
-        </ul>
+<header class="p-3 text-bg-light">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="${pageContext.request.contextPath}/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="${pageContext.request.contextPath}/images/logo1200.png" width="100px" height="61px"  alt="Icon">
+            </a>
+            <ul class="nav col-12 col-lg-auto me-lg mb-2 justify-content-end mb-md-0 ms-auto">
+                <li><a href="#" class="nav-link px-2 text-dark">Home</a></li>
+                <li><a href="#" class="nav-link px-2 text-dark" >Product Administration</a></li>
+                <li><a href="#" class="nav-link px-2 text-dark" >Category Administration</a></li>
+                <li><a href="#" class="nav-link px-2 text-dark" >Login</a></li>
+                <li><a href="#" class="nav-link px-2 text-dark" >Logout</a></li>
+            </ul>
+        </div>
     </div>
-</nav>
+</header>
