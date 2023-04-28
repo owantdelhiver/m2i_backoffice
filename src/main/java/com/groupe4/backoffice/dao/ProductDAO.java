@@ -18,15 +18,14 @@ public class ProductDAO implements GenericDAO<Product> {
     @Override
     public void create(Product obj) {
         Connection connection = DB.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(id, name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?,?)");){
-            preparedStatement.setInt(1,(int) obj.getId());
-            preparedStatement.setString(2,obj.getName());
-            preparedStatement.setFloat(3, obj.getPrice());
-            preparedStatement.setString(4, obj.getShort_description());
-            preparedStatement.setString(5, obj.getDescription());
-            preparedStatement.setInt(6, obj.getStock());
-            preparedStatement.setString(7, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
-            preparedStatement.setInt(8, Math.toIntExact(obj.getCategory().getId()));
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?)");){
+            preparedStatement.setString(1,obj.getName());
+            preparedStatement.setFloat(2, obj.getPrice());
+            preparedStatement.setString(3, obj.getShort_description());
+            preparedStatement.setString(4, obj.getDescription());
+            preparedStatement.setInt(5, obj.getStock());
+            preparedStatement.setString(6, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
+            preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
