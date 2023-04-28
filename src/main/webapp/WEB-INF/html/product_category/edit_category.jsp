@@ -1,3 +1,4 @@
+<jsp:useBean id="category" scope="request" type="com.groupe4.backoffice.model.ProductCategory"/>
 <%--
   Created by IntelliJ IDEA.
   User: Aerosson
@@ -16,10 +17,10 @@
         <h4>Edit category</h4>
         <form method="post" action="${pageContext.request.contextPath}/edit-category">
           <div class="mb-3">
-            <label for="categoryId" class="form-label">${category.id}</label>
-            <input type="text" class="form-control" id="categoryId" aria-describedby="emailHelp" name="id">
-            <label for="categoryName" class="form-label">${category.name}</label>
-            <input type="text" class="form-control" id="categoryName" aria-describedby="emailHelp" name="name">
+            <label for="categoryId" class="form-label">Id</label>
+            <input type="text" class="form-control" id="categoryId" aria-describedby="emailHelp" name="id" value="${category.id}" readonly>
+            <label for="categoryName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="categoryName" aria-describedby="emailHelp" name="name" value = "${category.name}">
             <div id="emailHelp" class="form-text">Ex: Processors...</div>
           </div>
           <button type="submit" class="btn btn-warning">Submit</button>
