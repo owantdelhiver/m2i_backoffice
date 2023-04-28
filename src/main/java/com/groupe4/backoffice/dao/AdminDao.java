@@ -12,7 +12,7 @@ public class AdminDao {
         public AdminDao() {
         }
 
-        public Admin findByCredentials(String email, String password) {
+        public static Admin findByCredentials(String email, String password) {
             Admin admin = null;
             Connection connection = DB.getConnection();
             try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ADMIN_BY_EMAIL)) {
