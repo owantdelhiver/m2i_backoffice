@@ -18,16 +18,14 @@ public class ProductDAO implements GenericDAO<Product> {
     @Override
     public void create(Product obj) {
         Connection connection = DB.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(id, name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?,?)");
-            preparedStatement.setInt(1,Math.toIntExact(obj.getId()));
-            preparedStatement.setString(2,obj.getName());
-            preparedStatement.setFloat(3, obj.getPrice());
-            preparedStatement.setString(4, obj.getShort_description());
-            preparedStatement.setString(5, obj.getDescription());
-            preparedStatement.setInt(6, obj.getStock());
-            preparedStatement.setString(7, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
-            preparedStatement.setInt(8, Math.toIntExact(obj.getCategory().getId()));
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?)");){
+            preparedStatement.setString(1,obj.getName());
+            preparedStatement.setFloat(2, obj.getPrice());
+            preparedStatement.setString(3, obj.getShort_description());
+            preparedStatement.setString(4, obj.getDescription());
+            preparedStatement.setInt(5, obj.getStock());
+            preparedStatement.setString(6, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
+            preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,16 +64,91 @@ public class ProductDAO implements GenericDAO<Product> {
 
     @Override
     public Product fetchById(Long id) {
-        return null;
+        Connection connection = DB.getConnection();
+        Product product = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT p.id, p.name, p.price, p.short_description, p.description, p.stock, p.picture_url, pc.id, pc.name FROM product p LEFT JOIN product_category pc on p.id_category = pc.id WHERE p.id = ?")){
+            preparedStatement.setInt(1, Math.toIntExact(id));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                product = new Product(
+                                resultSet.getLong("p.id"),
+                                resultSet.getString("p.name"),
+                                resultSet.getFloat("p.price"),
+                                resultSet.getString("p.short_description"),
+                                resultSet.getString("p.description"),
+                                resultSet.getInt("p.stock"),
+                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                new ProductCategory(
+                                        resultSet.getLong("pc.id"),
+                                        resultSet.getString("pc.name")
+                                )
+                        );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return product;
     }
 
     @Override
     public void update(Product obj) {
+        Connection connection = DB.getConnection();
+        try(PreparedStatement preparedStatement = connection.prepareStatement("UPDATE product SET name = ?, price = ?, short_description = ?, description = ?, stock = ?, picture_url = ?, id_category = ? WHERE id = ?")) {
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setFloat(2, obj.getPrice());
+            preparedStatement.setString(3, obj.getShort_description());
+            preparedStatement.setString(4, obj.getDescription());
+            preparedStatement.setInt(5, obj.getStock());
+            preparedStatement.setString(6, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
+            preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
+            preparedStatement.setInt(8, Math.toIntExact(obj.getId()));
 
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void delete(Product obj) {
+        Connection connection = DB.getConnection();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM product WHERE id = ?")){
+            preparedStatement.setInt(1, (int) obj.getId());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public List<Product> fetchByNameOrId(String search) {
+        List<Product> products = new ArrayList<>();
+        try(PreparedStatement preparedStatement = DB.getConnection().prepareStatement("SELECT p.id, p.name, p.price, p.short_description, p.description, p.stock, p.picture_url, pc.id, pc.name FROM product p LEFT JOIN product_category pc on p.id_category = pc.id WHERE p.id LIKE ? OR p.name LIKE ?")) {
+            preparedStatement.setString(1,search);
+            preparedStatement.setString(2, "%" + search + "%");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                products.add(
+                        new Product(
+                                resultSet.getLong("p.id"),
+                                resultSet.getString("p.name"),
+                                resultSet.getFloat("p.price"),
+                                resultSet.getString("p.short_description"),
+                                resultSet.getString("p.description"),
+                                resultSet.getInt("p.stock"),
+                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                new ProductCategory(
+                                        resultSet.getLong("pc.id"),
+                                        resultSet.getString("pc.name")
+                                )
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return products;
     }
 }

@@ -7,8 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public abstract class DB {
+public final class DB {
     private static Connection connection;
+
+    private DB() {}
 
     public static Connection getConnection() {
         if(connection == null) {
