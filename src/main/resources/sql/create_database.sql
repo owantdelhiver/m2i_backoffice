@@ -11,7 +11,7 @@ CREATE TABLE admin(
                       id INT AUTO_INCREMENT,
                       lastname VARCHAR(50) NOT NULL,
                       firstname VARCHAR(50),
-                      email VARCHAR(50),
+                      email VARCHAR(50) UNIQUE,
                       password VARCHAR(50),
                       PRIMARY KEY(id)
 );

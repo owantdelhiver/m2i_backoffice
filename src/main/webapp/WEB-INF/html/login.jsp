@@ -18,13 +18,13 @@
                 <div class="text-center">
                     <h3 class="mb-4">Se connecter</h3>
                 </div>
-                <form action="${pageContext.request.contextPath}/connexion" method="post">
+                <form action="${pageContext.request.contextPath}/login" method="post">
                     <div class="form-floating mt-5 mb-5">
-                        <input id="email" type="email" class="form-control" placeholder="name@example.com" required>
+                        <input id="email" type="email" name="email" class="form-control" placeholder="name@example.com" required>
                         <label for="email">email</label>
                     </div>
                     <div class="form-floating mt-5 mb-5">
-                        <input id="password" type="password" class="form-control" placeholder="password" required>
+                        <input id="password" type="password" name ="password" class="form-control" placeholder="password" required>
                         <label class="form-control-placeholder" for="password">Password</label>
                     </div>
                     <div class="form-group">
