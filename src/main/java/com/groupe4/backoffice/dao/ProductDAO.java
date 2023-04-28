@@ -18,9 +18,8 @@ public class ProductDAO implements GenericDAO<Product> {
     @Override
     public void create(Product obj) {
         Connection connection = DB.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(id, name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?,?)");
-            preparedStatement.setInt(1,Math.toIntExact(obj.getId()));
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(id, name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?,?)");){
+            preparedStatement.setInt(1,(int) obj.getId());
             preparedStatement.setString(2,obj.getName());
             preparedStatement.setFloat(3, obj.getPrice());
             preparedStatement.setString(4, obj.getShort_description());
@@ -100,6 +99,12 @@ public class ProductDAO implements GenericDAO<Product> {
 
     @Override
     public void delete(Product obj) {
-
+        Connection connection = DB.getConnection();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM product WHERE id = ?")){
+            preparedStatement.setInt(1, (int) obj.getId());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
