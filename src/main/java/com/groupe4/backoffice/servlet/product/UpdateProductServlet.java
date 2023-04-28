@@ -2,9 +2,9 @@ package com.groupe4.backoffice.servlet.product;
 
 import com.groupe4.backoffice.model.Product;
 import com.groupe4.backoffice.model.ProductCategory;
+import com.groupe4.backoffice.service.ProductCategorieService;
 import com.groupe4.backoffice.service.ProductService;
 import com.groupe4.backoffice.utils.JsonFormater;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,25 +13,27 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/create-product")
-public class CreateProductServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+@WebServlet(urlPatterns = "/edit-product")
+public class UpdateProductServlet extends HttpServlet {
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/html/product_category/create_product.jsp");
-        requestDispatcher.forward(req,resp);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request
+                .getRequestDispatcher("/WEB-INF/html/product_category/edit_product.jsp")
+                .forward(request, response);
     }
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        long id = Long.parseLong(req.getParameter("id"));
         String name = req.getParameter("name");
-        float price = Float.parseFloat(req.getParameter("price"));
+        long price = Long.parseLong(req.getParameter("price"));
         String shortDescription = req.getParameter("shortDescription");
         String longDescription = req.getParameter("longDescription");
         int stock = Integer.parseInt(req.getParameter("stock"));
         String pictureUrl = req.getParameter("pictureUrl");
         String categoryName = req.getParameter("categoryName");
-        ProductService.create(new Product(
+        ProductService.update(new Product(
+                id,
                 name,
                 price,
                 shortDescription,
