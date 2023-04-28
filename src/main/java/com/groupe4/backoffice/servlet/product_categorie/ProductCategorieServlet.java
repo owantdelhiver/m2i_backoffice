@@ -12,14 +12,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/product_categorie")
+@WebServlet(urlPatterns = "/category-list")
 public class ProductCategorieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ProductCategorie> categories = ProductCategorieService.fetchAll();
         req.setAttribute("categories", categories);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/html/product_categorie/product_categorie.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/html/category-list/category-list.jsp");
         requestDispatcher.forward(req,resp);
     }
 }
