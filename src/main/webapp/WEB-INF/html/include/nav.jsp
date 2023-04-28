@@ -13,11 +13,10 @@
                 <img src="${pageContext.request.contextPath}/images/logo1200.png" width="100px" height="61px"  alt="Icon">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg mb-2 justify-content-end mb-md-0 ms-auto">
-                <li><a href="#" class="nav-link px-2 text-dark">Home</a></li>
-                <li><a href="#" class="nav-link px-2 text-dark" >Product Administration</a></li>
-                <li><a href="#" class="nav-link px-2 text-dark" >Category Administration</a></li>
-                <li><a href="#" class="nav-link px-2 text-dark" >Login</a></li>
-                <li><a href="#" class="nav-link px-2 text-dark" >Logout</a></li>
+                <li><a href="${pageContext.request.contextPath}/" class="nav-link px-2 text-dark">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/products" class="nav-link px-2 text-dark" >Product</a></li>
+                <li><a href="${pageContext.request.contextPath}/categories" class="nav-link px-2 text-dark" >Category</a></li>
+                <li><a href="${pageContext.request.contextPath}/" class="nav-link px-2 text-dark" >Logout</a></li>
             </ul>
         </div>
     </div>

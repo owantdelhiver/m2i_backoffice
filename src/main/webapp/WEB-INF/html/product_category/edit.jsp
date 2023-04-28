@@ -14,7 +14,6 @@
 
 <div class="container mt-5">
   <h2>${title}</h2>
-
   <form class="mt-5" method="post" action="${action}">
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="name" placeholder="categorie" value="${categorie.name}">
