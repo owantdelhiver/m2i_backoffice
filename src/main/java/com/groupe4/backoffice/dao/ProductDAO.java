@@ -4,14 +4,14 @@ import com.groupe4.backoffice.model.DB;
 import com.groupe4.backoffice.model.Product;
 import com.groupe4.backoffice.model.ProductCategory;
 import com.groupe4.backoffice.utils.JsonFormater;
-import com.mysql.cj.xdevapi.JsonArray;
-import com.mysql.cj.xdevapi.JsonString;
 
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
+import java.util.ArrayList;
+
 import java.util.List;
 
 public class ProductDAO implements GenericDAO<Product> {
@@ -36,7 +36,32 @@ public class ProductDAO implements GenericDAO<Product> {
 
     @Override
     public List<Product> fetchAll() {
-        return null;
+        Connection connection = DB.getConnection();
+        List<Product> products = new ArrayList<>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT p.id, p.name, p.price, p.short_description, p.description, p.stock, p.picture_url, pc.id, pc.name FROM product p LEFT JOIN product_category pc on p.id_category = pc.id")){
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                products.add(
+                        new Product(
+                                resultSet.getLong("p.id"),
+                                resultSet.getString("p.name"),
+                                resultSet.getFloat("p.price"),
+                                resultSet.getString("p.short_description"),
+                                resultSet.getString("p.description"),
+                                resultSet.getInt("p.stock"),
+                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                new ProductCategory(
+                                        resultSet.getLong("pc.id"),
+                                        resultSet.getString("pc.name")
+                                        )
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return products;
     }
 
     @Override
@@ -55,6 +80,6 @@ public class ProductDAO implements GenericDAO<Product> {
     }
 
     public static void main(String[] args) {
-        new ProductDAO().create(new Product(1L, "toto", 15, "short", "description", 2, Arrays.asList("First", "Second"), new ProductCategory(1L,"category")));
+        System.out.println(new ProductDAO().fetchAll());
     }
 }
