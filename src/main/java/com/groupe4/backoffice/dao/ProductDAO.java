@@ -94,7 +94,21 @@ public class ProductDAO implements GenericDAO<Product> {
 
     @Override
     public void update(Product obj) {
+        Connection connection = DB.getConnection();
+        try(PreparedStatement preparedStatement = connection.prepareStatement("UPDATE product SET name = ?, price = ?, short_description = ?, description = ?, stock = ?, picture_url = ?, id_category = ? WHERE id = ?")) {
+            preparedStatement.setString(1, obj.getName());
+            preparedStatement.setFloat(2, obj.getPrice());
+            preparedStatement.setString(3, obj.getShort_description());
+            preparedStatement.setString(4, obj.getDescription());
+            preparedStatement.setInt(5, obj.getStock());
+            preparedStatement.setString(6, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
+            preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
+            preparedStatement.setInt(8, Math.toIntExact(obj.getId()));
 
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
