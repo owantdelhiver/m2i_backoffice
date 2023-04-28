@@ -15,7 +15,7 @@ public class AdminDao {
         public Admin findByCredentials(String email, String password) {
             Admin admin = null;
             Connection connection = DB.getConnection();
-            try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ADMIN_BY_EMAIL);) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ADMIN_BY_EMAIL)) {
 
                 preparedStatement.setString(1, email);
                 preparedStatement.setString(2, password);
