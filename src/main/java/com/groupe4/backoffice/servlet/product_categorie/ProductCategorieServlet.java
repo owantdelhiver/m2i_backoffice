@@ -19,7 +19,7 @@ public class ProductCategorieServlet extends HttpServlet {
         List<ProductCategory> categories = ProductCategorieService.fetchAll();
         req.setAttribute("categories", categories);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/html/category-list/category-list.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/html/product_category/category-list.jsp");
         requestDispatcher.forward(req,resp);
     }
 }
