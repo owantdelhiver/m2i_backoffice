@@ -66,7 +66,31 @@ public class ProductDAO implements GenericDAO<Product> {
 
     @Override
     public Product fetchById(Long id) {
-        return null;
+        Connection connection = DB.getConnection();
+        Product product = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT p.id, p.name, p.price, p.short_description, p.description, p.stock, p.picture_url, pc.id, pc.name FROM product p LEFT JOIN product_category pc on p.id_category = pc.id WHERE p.id = ?")){
+            preparedStatement.setInt(1, Math.toIntExact(id));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                product = new Product(
+                                resultSet.getLong("p.id"),
+                                resultSet.getString("p.name"),
+                                resultSet.getFloat("p.price"),
+                                resultSet.getString("p.short_description"),
+                                resultSet.getString("p.description"),
+                                resultSet.getInt("p.stock"),
+                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                new ProductCategory(
+                                        resultSet.getLong("pc.id"),
+                                        resultSet.getString("pc.name")
+                                )
+                        );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return product;
     }
 
     @Override
