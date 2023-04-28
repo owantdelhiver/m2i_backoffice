@@ -71,11 +71,11 @@ public class ProductCategorieDAO implements GenericDAO<ProductCategory> {
     }
 
     @Override
-    public void delete(ProductCategory obj) {
+    public void delete(Long id) {
         Connection connection = DB.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM product_category WHERE id = ? ");
-            preparedStatement.setInt(1, Math.toIntExact(obj.getId()));
+            preparedStatement.setInt(1, Math.toIntExact(id));
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new RuntimeException(e);

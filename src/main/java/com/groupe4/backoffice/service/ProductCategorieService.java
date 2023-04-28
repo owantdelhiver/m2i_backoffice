@@ -22,7 +22,7 @@ public class ProductCategorieService {
         new ProductCategorieDAO().update(productCategory);
     }
 
-    public static void delete(ProductCategory productCategory) {
-        new ProductCategorieDAO().delete(productCategory);
+    public static void delete(long id) {
+        new ProductCategorieDAO().delete(id);
     }
 }

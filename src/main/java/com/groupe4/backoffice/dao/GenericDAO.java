@@ -7,5 +7,5 @@ public interface GenericDAO<T> {
     List<T> fetchAll();
     T fetchById(Long id);
     void update(T obj);
-    void delete(T obj);
+    void delete(Long id);
 }

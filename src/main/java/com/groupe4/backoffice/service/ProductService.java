@@ -21,7 +21,7 @@ public class ProductService {
         new ProductDAO().update(product);
     }
 
-    public static void delete(Product product) {
-        new ProductDAO().delete(product);
+    public static void delete(Long id) {
+        new ProductDAO().delete(id);
     }
 }
