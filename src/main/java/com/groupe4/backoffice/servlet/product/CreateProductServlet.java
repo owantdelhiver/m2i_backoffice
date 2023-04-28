@@ -1,8 +1,8 @@
-package com.groupe4.backoffice.servlet.product_categorie;
+package com.groupe4.backoffice.servlet.product;
 
-import com.groupe4.backoffice.dao.ProductDAO;
 import com.groupe4.backoffice.model.Product;
 import com.groupe4.backoffice.model.ProductCategory;
+import com.groupe4.backoffice.service.ProductService;
 import com.groupe4.backoffice.utils.JsonFormater;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -31,7 +31,7 @@ public class CreateProductServlet extends HttpServlet {
         int stock = Integer.parseInt(req.getParameter("stock"));
         String pictureUrl = req.getParameter("pictureUrl");
         String categoryName = req.getParameter("categoryName");
-        new ProductDAO().create(new Product(
+        ProductService.create(new Product(
                 title,
                 price,
                 shortDescription,
