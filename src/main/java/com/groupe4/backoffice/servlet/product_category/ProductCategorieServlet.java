@@ -1,4 +1,4 @@
-package com.groupe4.backoffice.servlet.product_categorie;
+package com.groupe4.backoffice.servlet.product_category;
 
 import com.groupe4.backoffice.model.ProductCategory;
 import com.groupe4.backoffice.service.ProductCategorieService;
