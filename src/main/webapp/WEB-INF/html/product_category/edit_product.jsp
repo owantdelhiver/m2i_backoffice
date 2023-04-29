@@ -39,6 +39,7 @@
 
             <label for="productPictureUrl" class="form-label">Picture Url</label>
             <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl" value='${pictures_url}'>
+            <div id="emailHelp" class="form-text">Ex: ["Url1", "Url2"]</div>
 
             <label for="productCategoryName" class="form-label">Category Name</label>
             <input type="text" class="form-control" id="productCategoryName" name="categoryName" value="${product.category.name}">
