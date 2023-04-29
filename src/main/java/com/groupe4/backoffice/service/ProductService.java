@@ -1,7 +1,7 @@
 package com.groupe4.backoffice.service;
 
 import com.groupe4.backoffice.dao.ProductDAO;
-import com.groupe4.backoffice.model.Product;
+import com.groupe4.backoffice.model.product.Product;
 
 import java.util.List;
 

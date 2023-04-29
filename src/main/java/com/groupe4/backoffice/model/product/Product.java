@@ -1,7 +1,4 @@
-package com.groupe4.backoffice.model;
-
-import com.mysql.cj.xdevapi.JsonArray;
-import com.mysql.cj.xdevapi.JsonString;
+package com.groupe4.backoffice.model.product;
 
 import java.util.List;
 

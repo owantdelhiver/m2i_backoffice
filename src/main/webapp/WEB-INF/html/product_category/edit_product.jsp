@@ -1,5 +1,5 @@
 <jsp:useBean id="pictures_url" scope="request" type="java.lang.String"/>
-<jsp:useBean id="product" scope="request" type="com.groupe4.backoffice.model.Product"/>
+<jsp:useBean id="product" scope="request" type="com.groupe4.backoffice.model.product.Product"/>
 <%--
   Created by IntelliJ IDEA.
   User: Aerosson

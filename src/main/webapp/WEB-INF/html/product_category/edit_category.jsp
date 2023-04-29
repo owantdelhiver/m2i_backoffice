@@ -1,4 +1,4 @@
-<jsp:useBean id="category" scope="request" type="com.groupe4.backoffice.model.ProductCategory"/>
+<jsp:useBean id="category" scope="request" type="com.groupe4.backoffice.model.product.ProductCategory"/>
 <%--
   Created by IntelliJ IDEA.
   User: Aerosson

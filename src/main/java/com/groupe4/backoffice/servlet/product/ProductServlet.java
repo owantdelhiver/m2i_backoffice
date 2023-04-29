@@ -1,7 +1,7 @@
 package com.groupe4.backoffice.servlet.product;
 
-import com.groupe4.backoffice.model.Product;
-import com.groupe4.backoffice.model.ProductCategory;
+import com.groupe4.backoffice.model.product.Product;
+import com.groupe4.backoffice.model.product.ProductCategory;
 import com.groupe4.backoffice.service.ProductCategorieService;
 import com.groupe4.backoffice.service.ProductService;
 import jakarta.servlet.RequestDispatcher;

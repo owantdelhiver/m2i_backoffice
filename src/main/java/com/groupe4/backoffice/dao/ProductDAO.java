@@ -1,8 +1,8 @@
 package com.groupe4.backoffice.dao;
 
 import com.groupe4.backoffice.model.DB;
-import com.groupe4.backoffice.model.Product;
-import com.groupe4.backoffice.model.ProductCategory;
+import com.groupe4.backoffice.model.product.Product;
+import com.groupe4.backoffice.model.product.ProductCategory;
 import com.groupe4.backoffice.utils.JsonFormater;
 
 

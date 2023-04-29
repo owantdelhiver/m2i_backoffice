@@ -1,4 +1,4 @@
-package com.groupe4.backoffice.model;
+package com.groupe4.backoffice.model.product;
 
 public class ProductCategory {
     private Long id;
