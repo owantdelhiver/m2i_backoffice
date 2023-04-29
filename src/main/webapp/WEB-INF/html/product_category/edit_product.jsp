@@ -1,3 +1,4 @@
+<jsp:useBean id="product" scope="request" type="com.groupe4.backoffice.model.Product"/>
 <%--
   Created by IntelliJ IDEA.
   User: Aerosson
@@ -13,33 +14,33 @@
   <div class="container mt-5">
     <div class="card">
       <div class="card-body">
-        <h4>Edit category</h4>
+        <h4>Edit produit</h4>
         <form method="post" action="${pageContext.request.contextPath}/edit-product">
           <div class="mb-3">
 
             <label for="productId" class="form-label">Id</label>
-            <input type="text" class="form-control" id="productId" name="id">
+            <input type="text" class="form-control" id="productId" name="id" value="${product.id}" readonly>
 
             <label for="productName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="productName" name="name">
+            <input type="text" class="form-control" id="productName" name="name" value="${product.name}">
 
             <label for="productPrice" class="form-label">Price</label>
-            <input type="text" class="form-control" id="productPrice" name="price">
+            <input type="text" class="form-control" id="productPrice" name="price" value="${product.price}">
 
             <label for="productShort" class="form-label">Short description</label>
-            <input type="text" class="form-control" id="productShort" name="shortDescription">
+            <input type="text" class="form-control" id="productShort" name="shortDescription" value="${product.short_description}">
 
             <label for="productLong" class="form-label">Long description</label>
-            <input type="text" class="form-control" id="productLong" name="longDescription">
+            <input type="text" class="form-control" id="productLong" name="longDescription" value="${product.description}">
 
             <label for="productStock" class="form-label">Stock</label>
-            <input type="text" class="form-control" id="productStock" name="stock">
+            <input type="text" class="form-control" id="productStock" name="stock" value="${product.stock}">
 
             <label for="productPictureUrl" class="form-label">Picture Url</label>
-            <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl">
+            <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl" value="${product.picture_url}">
 
             <label for="productCategoryName" class="form-label">Category Name</label>
-            <input type="text" class="form-control" id="productCategoryName" name="categoryName">
+            <input type="text" class="form-control" id="productCategoryName" name="categoryName" value="${product.category.name}">
 
           </div>
           <button type="submit" class="btn btn-warning">Submit</button>

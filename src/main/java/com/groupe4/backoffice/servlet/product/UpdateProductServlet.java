@@ -18,6 +18,10 @@ public class UpdateProductServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = ProductService.fetchOneById(id);
+        request.setAttribute("product", product);
+
         request
                 .getRequestDispatcher("/WEB-INF/html/product_category/edit_product.jsp")
                 .forward(request, response);
