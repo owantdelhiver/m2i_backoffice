@@ -20,7 +20,9 @@ public class UpdateProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = ProductService.fetchOneById(id);
+        String pictures_url = JsonFormater.arraysStringToJsonString(product.getPicture_url());
         request.setAttribute("product", product);
+        request.setAttribute("pictures_url", pictures_url);
 
         request
                 .getRequestDispatcher("/WEB-INF/html/product_category/edit_product.jsp")

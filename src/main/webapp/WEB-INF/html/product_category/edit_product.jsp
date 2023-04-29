@@ -1,3 +1,4 @@
+<jsp:useBean id="pictures_url" scope="request" type="java.lang.String"/>
 <jsp:useBean id="product" scope="request" type="com.groupe4.backoffice.model.Product"/>
 <%--
   Created by IntelliJ IDEA.
@@ -37,7 +38,7 @@
             <input type="text" class="form-control" id="productStock" name="stock" value="${product.stock}">
 
             <label for="productPictureUrl" class="form-label">Picture Url</label>
-            <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl" value="${product.picture_url}">
+            <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl" value='${pictures_url}'>
 
             <label for="productCategoryName" class="form-label">Category Name</label>
             <input type="text" class="form-control" id="productCategoryName" name="categoryName" value="${product.category.name}">
