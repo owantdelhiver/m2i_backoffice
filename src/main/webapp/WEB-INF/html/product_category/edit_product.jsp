@@ -24,8 +24,8 @@
             <label for="productName" class="form-label">Name</label>
             <input type="text" class="form-control" id="productName" name="name" value="${product.name}">
 
-            <label for="productPrice" class="form-label">Price</label>
-            <input type="text" class="form-control" id="productPrice" name="price" value="${product.price}">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="${product.price}">
 
             <label for="productShort" class="form-label">Short description</label>
             <input type="text" class="form-control" id="productShort" name="shortDescription" value="${product.short_description}">
