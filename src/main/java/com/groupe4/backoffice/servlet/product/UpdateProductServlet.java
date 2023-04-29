@@ -30,7 +30,7 @@ public class UpdateProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         long id = Long.parseLong(req.getParameter("id"));
         String name = req.getParameter("name");
-        long price = Long.parseLong(req.getParameter("price"));
+        float price = Float.parseFloat(req.getParameter("price"));
         String shortDescription = req.getParameter("shortDescription");
         String longDescription = req.getParameter("longDescription");
         int stock = Integer.parseInt(req.getParameter("stock"));
