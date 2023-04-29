@@ -35,7 +35,7 @@
             <input type="text" class="form-control" id="productLong" name="longDescription" value="${product.description}">
 
             <label for="productStock" class="form-label">Stock</label>
-            <input type="text" class="form-control" id="productStock" name="stock" value="${product.stock}">
+            <input type="number" step="1" class="form-control" id="productStock" name="stock" value="${product.stock}">
 
             <label for="productPictureUrl" class="form-label">Picture Url</label>
             <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl" value='${pictures_url}'>
