@@ -10,8 +10,8 @@ public class AdminService {
 
     public static Admin findByCredentials(String email, String password) {return new AdminDao().findByCredentials(email, password);}
 
-    public List<AdminDto> findAll(String email) {
-        return AdminDao.findAll(email).stream()
+    public List<AdminDto> findAll() {
+        return AdminDao.findAll().stream()
                 .map(admin -> admin.toDto())
                 .collect(Collectors.toList());
     }
