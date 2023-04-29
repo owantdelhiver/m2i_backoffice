@@ -27,7 +27,6 @@ public class LoginServlet extends HttpServlet {
 
        Admin admin= AdminService.findByCredentials(email, password);
         if(admin!=null){
-            System.out.println("connected");
             HttpSession session = req.getSession();
             session.setAttribute("email", email);
             resp.sendRedirect(req.getContextPath()+"/");
