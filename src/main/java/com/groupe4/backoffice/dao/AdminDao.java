@@ -5,10 +5,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminDao {
 
         private static final String SELECT_ADMIN_BY_EMAIL = "select * from admin where email = ? AND password = ?";
+
         public AdminDao() {
         }
 
@@ -34,7 +37,6 @@ public class AdminDao {
             }
             return admin;
         }
-
 
 
 

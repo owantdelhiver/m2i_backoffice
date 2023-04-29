@@ -1,8 +1,10 @@
 package com.groupe4.backoffice.model;
 
+import com.groupe4.backoffice.dto.AdminDto;
+
 public class Admin {
 
-        private int userId;
+        private int adminId;
         private String firstname;
         private String lastname;
         private String email;
@@ -10,7 +12,7 @@ public class Admin {
 
 
         public Admin(int id, String firstname, String lastname, String email, String password) {
-            this.userId = id;
+            this.adminId = id;
             this.firstname = firstname;
             this.lastname = lastname;
             this.email = email;
@@ -26,12 +28,28 @@ public class Admin {
 
         }
 
-        public int getAdminId() {
-            return userId;
+    public Admin(int adminId, String firstname, String lastname, String email) {
+        this.adminId = adminId;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+    }
+
+    public AdminDto toDto(){
+        AdminDto dto = new AdminDto();
+        dto.setAdminId(this.getAdminId());
+        dto.setFirstname(this.getFirstname());
+        dto.setLastname(this.getLastname());
+        dto.setEmail(this.getEmail());
+        return dto;
+    }
+
+    public int getAdminId() {
+            return adminId;
         }
 
         public void setAdminId(int userId) {
-            this.userId = userId;
+            this.adminId = userId;
         }
 
         public String getFirstname() {
