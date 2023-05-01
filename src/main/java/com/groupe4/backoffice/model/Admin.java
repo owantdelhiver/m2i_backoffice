@@ -3,7 +3,6 @@ package com.groupe4.backoffice.model;
 import com.groupe4.backoffice.dto.AdminDto;
 
 public class Admin {
-
         private int adminId;
         private String firstname;
         private String lastname;
