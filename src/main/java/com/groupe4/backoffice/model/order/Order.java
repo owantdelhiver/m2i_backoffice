@@ -16,6 +16,12 @@ public class Order {
         this.orderLines = orderLines;
     }
 
+    public Order(int id, Date date, OrderStatus orderStatus) {
+        this.id = id;
+        this.date = date;
+        this.orderStatus = orderStatus;
+    }
+
     public int getId() {
         return id;
     }
