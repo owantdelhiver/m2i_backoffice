@@ -11,4 +11,15 @@ public enum OrderStatus {
     private OrderStatus(String label) {
         this.label = label;
     }
+
+    public static OrderStatus getFromLabel(String text) {
+        for (OrderStatus orderStatus : OrderStatus.values()) {
+            if (orderStatus.label.equalsIgnoreCase(text)) {
+                return orderStatus;
+            }
+        }
+        return null;
+    }
+
+
 }
