@@ -28,3 +28,22 @@ CREATE TABLE product(
                         PRIMARY KEY(id),
                         FOREIGN KEY(id_category) REFERENCES product_category(id)
 );
+
+CREATE TABLE `order`(
+                       id INT AUTO_INCREMENT,
+                       date DATE,
+                       status VARCHAR(50),
+                       PRIMARY KEY (id)
+
+);
+
+CREATE TABLE orderLine
+(
+                        id INT AUTO_INCREMENT,
+                        id_product INT,
+                        id_order INT,
+                        quantity INT,
+                        PRIMARY KEY (id),
+                        FOREIGN KEY (id_product) REFERENCES product(id),
+                        FOREIGN KEY (id_order) REFERENCES `order`(id)
+);
