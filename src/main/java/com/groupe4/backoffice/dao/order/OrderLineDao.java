@@ -1,4 +1,6 @@
-package com.groupe4.backoffice.dao;
+package com.groupe4.backoffice.dao.order;
+import com.groupe4.backoffice.dao.GenericDAO;
+import com.groupe4.backoffice.dao.ProductDAO;
 import com.groupe4.backoffice.model.DB;
 import com.groupe4.backoffice.model.order.OrderLine;
 import java.sql.Connection;
