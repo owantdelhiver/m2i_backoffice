@@ -22,4 +22,14 @@ public class ProductCategorieServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/html/product_category/category_list.jsp");
         requestDispatcher.forward(req,resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<ProductCategory> categories = ProductCategorieService.fetchByIdOrName(req.getParameter("search"));
+
+        req.setAttribute("categories", categories);
+        
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/html/product_category/category_list.jsp");
+        requestDispatcher.forward(req,resp);
+    }
 }
