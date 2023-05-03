@@ -40,6 +40,28 @@ public class ProductCategorieDAO implements GenericDAO<ProductCategory> {
         return categories;
     }
 
+    public List<ProductCategory> fetchByNameOrId(String search) {
+        List<ProductCategory> categories = new ArrayList<>();
+        try (PreparedStatement preparedStatement = DB.getConnection().prepareStatement("SELECT pc.id, pc.name FROM  product_category pc  WHERE pc.id LIKE ? OR pc.name LIKE ?")) {
+            preparedStatement.setString(1, search);
+            preparedStatement.setString(2, "%" + search + "%");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                categories.add(
+                        new ProductCategory(
+                                resultSet.getLong("pc.id"),
+                                resultSet.getString("pc.name")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return categories;
+    }
+
     @Override
     public ProductCategory fetchById(Long id) {
         ProductCategory category = null;
