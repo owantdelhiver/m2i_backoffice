@@ -19,7 +19,7 @@ CREATE TABLE admin(
 CREATE TABLE product(
                         id INT AUTO_INCREMENT,
                         name VARCHAR(50),
-                        price DECIMAL(15,2),
+                        price FLOAT,
                         short_description VARCHAR(50),
                         description VARCHAR(255),
                         stock INT,
