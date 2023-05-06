@@ -29,7 +29,7 @@ CREATE TABLE product(
                         FOREIGN KEY(id_category) REFERENCES product_category(id)
 );
 
-CREATE TABLE `order`(
+CREATE TABLE orders(
                        id INT AUTO_INCREMENT,
                        date DATE,
                        status VARCHAR(50),
@@ -45,5 +45,5 @@ CREATE TABLE orderLine
                         quantity INT,
                         PRIMARY KEY (id),
                         FOREIGN KEY (id_product) REFERENCES product(id),
-                        FOREIGN KEY (id_order) REFERENCES `order`(id)
+                        FOREIGN KEY (id_order) REFERENCES orders(id)
 );
