@@ -10,6 +10,8 @@ public class ProductCategorieService {
         return new ProductCategorieDAO().fetchAll();
     }
 
+    public static List<ProductCategory> fetchByIdOrName(String search) { return new ProductCategorieDAO().fetchByNameOrId(search);}
+
     public static ProductCategory fetchOneById(long id) {
         return new ProductCategorieDAO().fetchById(id);
     }
