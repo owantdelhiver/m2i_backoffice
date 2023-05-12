@@ -9,10 +9,10 @@ public class Product {
     private String short_description;
     private String description;
     private int stock;
-    private List<String> picture_url;
+    private String picture_url;
     private ProductCategory category;
 
-    public Product(long id, String name, float price, String short_description, String description, int stock, List<String> picture_url, ProductCategory category) {
+    public Product(long id, String name, float price, String short_description, String description, int stock, String picture_url, ProductCategory category) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -23,7 +23,7 @@ public class Product {
         this.category = category;
     }
 
-    public Product(String name, float price, String short_description, String description, int stock, List<String> picture_url, ProductCategory category) {
+    public Product(String name, float price, String short_description, String description, int stock, String picture_url, ProductCategory category) {
         this.name = name;
         this.price = price;
         this.short_description = short_description;
@@ -81,11 +81,11 @@ public class Product {
         this.stock = stock;
     }
 
-    public List<String> getPicture_url() {
+    public String getPicture_url() {
         return picture_url;
     }
 
-    public void setPicture_url(List<String> picture_url) {
+    public void setPicture_url(String picture_url) {
         this.picture_url = picture_url;
     }
 

@@ -19,7 +19,7 @@ public class UpdateProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = ProductService.fetchOneById(id);
-        String pictures_url = JsonFormater.arraysStringToJsonString(product.getPicture_url());
+        String pictures_url = product.getPicture_url();
         request.setAttribute("product", product);
         request.setAttribute("pictures_url", pictures_url);
 
@@ -44,7 +44,7 @@ public class UpdateProductServlet extends HttpServlet {
                 shortDescription,
                 longDescription,
                 stock,
-                JsonFormater.JsonToListString(pictureUrl),
+                pictureUrl,
                 new ProductCategory(1L, categoryName)));
         resp.sendRedirect("products");
     }

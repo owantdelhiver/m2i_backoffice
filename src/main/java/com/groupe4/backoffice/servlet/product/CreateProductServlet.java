@@ -37,7 +37,7 @@ public class CreateProductServlet extends HttpServlet {
                 shortDescription,
                 longDescription,
                 stock,
-                JsonFormater.JsonToListString(pictureUrl),
+                pictureUrl,
                 new ProductCategory(1L, categoryName)));
         resp.sendRedirect("products");
     }

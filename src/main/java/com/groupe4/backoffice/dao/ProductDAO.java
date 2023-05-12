@@ -24,7 +24,7 @@ public class ProductDAO implements GenericDAO<Product> {
             preparedStatement.setString(3, obj.getShort_description());
             preparedStatement.setString(4, obj.getDescription());
             preparedStatement.setInt(5, obj.getStock());
-            preparedStatement.setString(6, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
+            preparedStatement.setString(6, obj.getPicture_url());
             preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -47,7 +47,7 @@ public class ProductDAO implements GenericDAO<Product> {
                                 resultSet.getString("p.short_description"),
                                 resultSet.getString("p.description"),
                                 resultSet.getInt("p.stock"),
-                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                resultSet.getString("p.picture_url"),
                                 new ProductCategory(
                                         resultSet.getLong("pc.id"),
                                         resultSet.getString("pc.name")
@@ -77,7 +77,7 @@ public class ProductDAO implements GenericDAO<Product> {
                                 resultSet.getString("p.short_description"),
                                 resultSet.getString("p.description"),
                                 resultSet.getInt("p.stock"),
-                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                resultSet.getString("p.picture_url"),
                                 new ProductCategory(
                                         resultSet.getLong("pc.id"),
                                         resultSet.getString("pc.name")
@@ -100,7 +100,7 @@ public class ProductDAO implements GenericDAO<Product> {
             preparedStatement.setString(3, obj.getShort_description());
             preparedStatement.setString(4, obj.getDescription());
             preparedStatement.setInt(5, obj.getStock());
-            preparedStatement.setString(6, JsonFormater.arraysStringToJsonString(obj.getPicture_url()));
+            preparedStatement.setString(6, obj.getPicture_url());
             preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
             preparedStatement.setInt(8, Math.toIntExact(obj.getId()));
 
@@ -137,7 +137,7 @@ public class ProductDAO implements GenericDAO<Product> {
                                 resultSet.getString("p.short_description"),
                                 resultSet.getString("p.description"),
                                 resultSet.getInt("p.stock"),
-                                JsonFormater.JsonToListString(resultSet.getString("p.picture_url")),
+                                resultSet.getString("p.picture_url"),
                                 new ProductCategory(
                                         resultSet.getLong("pc.id"),
                                         resultSet.getString("pc.name")
