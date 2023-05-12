@@ -47,3 +47,22 @@ CREATE TABLE orderLine
                         FOREIGN KEY (id_product) REFERENCES product(id),
                         FOREIGN KEY (id_order) REFERENCES `order`(id)
 );
+
+create table role
+(
+    id int not null ,
+    name varchar(255),
+    PRIMARY KEY (id)
+);
+
+create table user_role
+(
+    id_user int not null,
+    id_role int not null,
+    constraint user_role_pk
+        primary key (id_user, id_role),
+    constraint user_role___fk
+        foreign key (id_user) references user (id),
+    constraint user_role_role_id_fk
+        foreign key (id_role) references role (id)
+);
