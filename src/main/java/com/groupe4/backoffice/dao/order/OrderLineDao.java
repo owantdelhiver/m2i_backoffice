@@ -16,7 +16,7 @@ public class OrderLineDao implements GenericDAO<OrderLine> {
     public List<OrderLine> fetchByOrderId(Long id) {
         Connection connection = DB.getConnection();
         List<OrderLine> orderLines = new ArrayList<>();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from OrderLine ol LEFT JOIN `order`ord on ol.id_order=ord.id where ol.id_order=?")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from OrderLine ol LEFT JOIN orders ord on ol.id_order=ord.id where ol.id_order=?")) {
             preparedStatement.setInt(1, Math.toIntExact(id));
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

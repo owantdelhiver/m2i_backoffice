@@ -16,7 +16,7 @@ public class OrderDao implements GenericDAO<Order> {
     public List<Order> fetchAll() {
         Connection connection = DB.getConnection();
         List<Order> orders = new ArrayList<>();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `order`"))
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM orders"))
              {
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
