@@ -13,8 +13,8 @@ public class ProductService {
         return new ProductDAO().fetchById((long) id);
     }
     public static List<Product> fetchByNameOrId(String search) {return new ProductDAO().fetchByNameOrId(search);}
-    public static void create(Product product) {
-        new ProductDAO().create(product);
+    public static int create(Product product) {
+        return new ProductDAO().create(product);
     }
 
     public static void update(Product product) {

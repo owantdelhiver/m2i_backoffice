@@ -34,8 +34,8 @@ public class OrderDao implements GenericDAO<Order> {
         return orders;
     }
     @Override
-    public void create(Order obj) {
-
+    public int create(Order obj) {
+        return 0;
     }
 
     @Override

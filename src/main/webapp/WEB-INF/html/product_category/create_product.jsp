@@ -14,14 +14,14 @@
     <div class="card">
       <div class="card-body">
         <h4>Create new product</h4>
-        <form method="post" action="${pageContext.request.contextPath}/create-product">
+        <form method="post" action="${pageContext.request.contextPath}/create-product" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="productName" class="form-label">Product name</label>
             <input type="text" class="form-control" id="productName" name="name">
           </div>
           <div class="mb-3">
             <label for="productPrice" class="form-label">Price</label>
-            <input type="text" class="form-control" id="productPrice" name="price">
+            <input type="number" step="0.01" class="form-control" id="productPrice" name="price">
           </div>
           <div class="mb-3">
             <label for="productShort" class="form-label">Short description</label>
@@ -37,8 +37,7 @@
           </div>
           <div class="mb-3">
             <label for="productPictureUrl" class="form-label">Picture URL</label>
-            <input type="text" class="form-control" id="productPictureUrl" aria-describedby="emailHelp" name="pictureUrl">
-            <div id="emailHelp" class="form-text">Ex: ["Url1", "Url2"]</div>
+            <input type="file" accept=".image/* " class="form-control" id="productPictureUrl" name="pictureUrl">
           </div>
           <div class="mb-3">
             <label for="productCategoryName" class="form-label">Category name</label>

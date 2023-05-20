@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductCategorieDAO implements GenericDAO<ProductCategory> {
 
     @Override
-    public void create(ProductCategory obj) {
+    public int create(ProductCategory obj) {
         Connection connection = DB.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product_category (name) VALUES (?)");
@@ -22,6 +22,7 @@ public class ProductCategorieDAO implements GenericDAO<ProductCategory> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return 0;
     }
 
     @Override

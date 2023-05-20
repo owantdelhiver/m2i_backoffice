@@ -59,8 +59,8 @@ public class OrderLineDao implements GenericDAO<OrderLine> {
     }
 
     @Override
-    public void create(OrderLine obj) {
-
+    public int create(OrderLine obj) {
+        return 0;
     }
 
 

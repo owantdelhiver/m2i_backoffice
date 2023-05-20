@@ -6,30 +6,33 @@ import com.groupe4.backoffice.model.product.ProductCategory;
 import com.groupe4.backoffice.utils.JsonFormater;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import java.util.List;
 
 public class ProductDAO implements GenericDAO<Product> {
     @Override
-    public void create(Product obj) {
+    public int create(Product obj) {
         Connection connection = DB.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?)");){
-            preparedStatement.setString(1,obj.getName());
-            preparedStatement.setFloat(2, obj.getPrice());
-            preparedStatement.setString(3, obj.getShort_description());
-            preparedStatement.setString(4, obj.getDescription());
-            preparedStatement.setInt(5, obj.getStock());
-            preparedStatement.setString(6, obj.getPicture_url());
-            preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
-            preparedStatement.execute();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO product(name, price, short_description, description, stock, picture_url, id_category) VALUES (?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS)) {
+                preparedStatement.setString(1,obj.getName());
+                preparedStatement.setFloat(2, obj.getPrice());
+                preparedStatement.setString(3, obj.getShort_description());
+                preparedStatement.setString(4, obj.getDescription());
+                preparedStatement.setInt(5, obj.getStock());
+                preparedStatement.setString(6, obj.getPicture_url());
+                preparedStatement.setInt(7, Math.toIntExact(obj.getCategory().getId()));
+                preparedStatement.execute();
+
+                ResultSet generatedKey = preparedStatement.getGeneratedKeys();
+                if(generatedKey.next()) {
+                    return generatedKey.getInt(1);
+                }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return 0;
     }
 
     @Override
