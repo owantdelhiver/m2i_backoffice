@@ -20,7 +20,7 @@ public class ImageSave {
         }
     }
 
-    private String getFileName(Part part) {
+    public String getFileName(Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename"))
                 return content.substring(content.indexOf("=") + 2, content.length() - 1);

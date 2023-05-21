@@ -1,4 +1,3 @@
-<jsp:useBean id="pictures_url" scope="request" type="java.lang.String"/>
 <jsp:useBean id="product" scope="request" type="com.groupe4.backoffice.model.product.Product"/>
 <%--
   Created by IntelliJ IDEA.
@@ -16,7 +15,7 @@
     <div class="card">
       <div class="card-body">
         <h4>Edit produit</h4>
-        <form method="post" action="${pageContext.request.contextPath}/edit-product">
+        <form method="post" action="${pageContext.request.contextPath}/edit-product" enctype="multipart/form-data">
           <div class="mb-3">
 
             <label for="productId" class="form-label">Id</label>
@@ -37,9 +36,10 @@
             <label for="productStock" class="form-label">Stock</label>
             <input type="number" step="1" class="form-control" id="productStock" name="stock" value="${product.stock}">
 
-            <label for="productPictureUrl" class="form-label">Picture Url</label>
-            <input type="text" class="form-control" id="productPictureUrl" name="pictureUrl" value='${pictures_url}'>
-            <div id="emailHelp" class="form-text">Ex: ["Url1", "Url2"]</div>
+            <label for="productPictureUrl" class="form-label">Picture URL</label>
+            <input type="text" disabled class="form-control" id="productPictureUrl" value="${product.picture_url}">
+
+            <input type="file" accept=".image/* " class="form-control" name="pictureUrl">
 
             <label for="productCategoryName" class="form-label">Category Name</label>
             <input type="text" class="form-control" id="productCategoryName" name="categoryName" value="${product.category.name}">

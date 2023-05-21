@@ -34,7 +34,7 @@ public class CreateProductServlet extends HttpServlet {
         String shortDescription = req.getParameter("shortDescription");
         String longDescription = req.getParameter("longDescription");
         int stock = Integer.parseInt(req.getParameter("stock"));
-        String pictureUrl = req.getParameter("pictureUrl");
+        String pictureUrl = new ImageSave().getFileName(req.getPart("pictureUrl"));
         String categoryName = req.getParameter("categoryName");
         int id_product = ProductService.create(new Product(
                 name,
@@ -44,6 +44,8 @@ public class CreateProductServlet extends HttpServlet {
                 stock,
                 pictureUrl,
                 new ProductCategory(1L, categoryName)));
+
+
 
         new ImageSave().save(req.getPart("pictureUrl"), id_product);
 
