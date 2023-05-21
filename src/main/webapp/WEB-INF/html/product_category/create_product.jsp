@@ -7,6 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<jsp:useBean id="categories" scope="request" type="java.util.List"/>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <jsp:include page="../include/head.jsp" />
 <jsp:include page="../include/nav.jsp" />
 <div class="main-containers row mb-3">
@@ -40,8 +44,12 @@
             <input type="file" accept=".image/* " class="form-control" id="productPictureUrl" name="pictureUrl">
           </div>
           <div class="mb-3">
-            <label for="productCategoryName" class="form-label">Category name</label>
-            <input type="text" class="form-control" id="productCategoryName" name="categoryName">
+            <label for="productCategoryId" class="form-label">Category name</label>
+            <select name="productCategoryId" id="productCategoryId">
+              <c:forEach var="category"  items="${categories}" >
+                <option value="${category.id}"> ${category.name} </option>
+              </c:forEach>
+            </select>
           </div>
           <button type="submit" class="btn btn-warning">Submit</button>
         </form>

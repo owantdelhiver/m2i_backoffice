@@ -5,7 +5,10 @@ public class ProductCategory {
     private String name;
 
     public ProductCategory() {
-        name = "";
+    }
+
+    public ProductCategory(int id) {
+        this.id = (long) id;
     }
 
     public ProductCategory(String name) {

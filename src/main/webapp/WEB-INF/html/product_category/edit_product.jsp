@@ -6,6 +6,10 @@
   Time: 17:03
   To change this template use File | Settings | File Templates.
 --%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="../include/head.jsp" />
@@ -41,8 +45,14 @@
 
             <input type="file" accept=".image/* " class="form-control" name="pictureUrl">
 
-            <label for="productCategoryName" class="form-label">Category Name</label>
-            <input type="text" class="form-control" id="productCategoryName" name="categoryName" value="${product.category.name}">
+
+              <label for="productCategoryId" class="form-label">Category name</label>
+              <select name="productCategoryId" id="productCategoryId">
+                <jsp:useBean id="categories" scope="request" type="java.util.List"/>
+                <c:forEach var="category"  items="${categories}" >
+                  <option value="${category.id}" <c:if test="${category.id == product.category.id}">selected</c:if>> ${category.name} </option>
+                </c:forEach>
+              </select>
 
           </div>
           <button type="submit" class="btn btn-warning">Submit</button>
