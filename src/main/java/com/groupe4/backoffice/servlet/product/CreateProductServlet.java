@@ -4,8 +4,7 @@ import com.groupe4.backoffice.model.product.Product;
 import com.groupe4.backoffice.model.product.ProductCategory;
 import com.groupe4.backoffice.service.ProductCategorieService;
 import com.groupe4.backoffice.service.ProductService;
-import com.groupe4.backoffice.utils.ImageSave;
-import com.groupe4.backoffice.utils.JsonFormater;
+import com.groupe4.backoffice.utils.Image;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -13,9 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class CreateProductServlet extends HttpServlet {
         String shortDescription = req.getParameter("shortDescription");
         String longDescription = req.getParameter("longDescription");
         int stock = Integer.parseInt(req.getParameter("stock"));
-        String pictureUrl = new ImageSave().getFileName(req.getPart("pictureUrl"));
+        String pictureUrl = new Image().getFileName(req.getPart("pictureUrl"));
         int categoryId = Integer.parseInt(req.getParameter("productCategoryId"));
         int id_product = ProductService.create(new Product(
                 name,
@@ -50,7 +47,7 @@ public class CreateProductServlet extends HttpServlet {
                 new ProductCategory(categoryId)
         ));
 
-        new ImageSave().save(req.getPart("pictureUrl"), id_product);
+        new Image().save(req.getPart("pictureUrl"), id_product);
 
         resp.sendRedirect("products");
     }

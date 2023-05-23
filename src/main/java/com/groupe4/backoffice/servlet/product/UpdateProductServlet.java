@@ -4,21 +4,16 @@ import com.groupe4.backoffice.model.product.Product;
 import com.groupe4.backoffice.model.product.ProductCategory;
 import com.groupe4.backoffice.service.ProductCategorieService;
 import com.groupe4.backoffice.service.ProductService;
-import com.groupe4.backoffice.utils.ImageSave;
-import com.groupe4.backoffice.utils.JsonFormater;
+import com.groupe4.backoffice.utils.Image;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
 
-import javax.imageio.ImageIO;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 @WebServlet(urlPatterns = "/edit-product")
 @MultipartConfig
@@ -43,7 +38,7 @@ public class UpdateProductServlet extends HttpServlet {
         String shortDescription = req.getParameter("shortDescription");
         String longDescription = req.getParameter("longDescription");
         int stock = Integer.parseInt(req.getParameter("stock"));
-        String pictureUrl = new ImageSave().getFileName(req.getPart("pictureUrl"));
+        String pictureUrl = new Image().getFileName(req.getPart("pictureUrl"));
         int categoryId = Integer.parseInt(req.getParameter("productCategoryId"));
         ProductService.update(new Product(
                 id,
@@ -56,7 +51,7 @@ public class UpdateProductServlet extends HttpServlet {
                 new ProductCategory(categoryId)
         ));
 
-        new ImageSave().save(req.getPart("pictureUrl"), (int) id);
+        new Image().save(req.getPart("pictureUrl"), (int) id);
 
         resp.sendRedirect("products");
     }
