@@ -28,8 +28,7 @@ public class Image {
         return "Default.file";
     }
 
-    private String getPathToUpload(String fileName, int id_product) {
-
+    public String getPathImgDirProduct() {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String fullPath;
         try {
@@ -50,7 +49,11 @@ public class Image {
             joiner.add(element);
         }
 
-        String pathDir = joiner.toString() + File.separatorChar + "media/product" + File.separator + id_product;
+        return joiner.toString() + File.separatorChar + "media/product";
+    }
+
+    private String getPathToUpload(String fileName, int id_product) {
+        String pathDir =  getPathImgDirProduct() + File.separator + id_product;
         File uploadDir = new File(pathDir);
 
         if (!uploadDir.exists()) uploadDir.mkdir();
