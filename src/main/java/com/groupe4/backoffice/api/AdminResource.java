@@ -17,9 +17,7 @@ public class AdminResource {
         List<AdminDto> adminList = adminService.findAll();
         return Response
                 .ok(adminList)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Allow-Origin", "http://localhost:8081")
                 .build();
     }
 }
