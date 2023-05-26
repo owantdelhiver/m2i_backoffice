@@ -10,31 +10,31 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+
 @Path("/tickets")
 public class TicketResource {
 
 
-        @POST
-        @Produces(value = MediaType.APPLICATION_JSON)
-        public Response getAll() {
-            List<Ticket> ticketList = TicketService.fetchAll();
+    @GET
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Response getAll() {
+        List<Ticket> ticketList = TicketService.fetchAll();
 
-            return Response
-                    .ok(ticketList)
-                    .header("Access-Control-Allow-Origin", "http://localhost:8081")
-                    .build();
-        }
+        return Response
+                .ok(ticketList)
+                .build();
+    }
+
     @POST
     @Path("/create")
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response create(Ticket ticket) {
-    TicketService.create(ticket);
+        TicketService.create(ticket);
 
         return Response
                 .ok()
-                .header("Access-Control-Allow-Origin", "http://localhost:8081")
                 .build();
     }
-    }
+}
 

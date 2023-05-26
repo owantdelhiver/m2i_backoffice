@@ -19,9 +19,11 @@ public class LoginFilter extends HttpFilter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) res;
         HttpSession httpSession = httpServletRequest.getSession();
 
+        ((HttpServletResponse) res).addHeader("Access-Control-Allow-Origin", "http://localhost:8081");
+
+
         if(httpServletRequest.getRequestURI().equals(httpServletRequest.getContextPath() + "/login")
                 || httpServletRequest.getRequestURI().contains(httpServletRequest.getContextPath() + "/api")
-                || httpServletRequest.getRequestURI().contains(httpServletRequest.getContextPath() + "/images")
         ) {
             chain.doFilter(req, res);
         } else {
