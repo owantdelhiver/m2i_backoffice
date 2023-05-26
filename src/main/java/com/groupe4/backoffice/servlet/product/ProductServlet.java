@@ -37,4 +37,5 @@ public class ProductServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/html/product_category/product_list.jsp");
         requestDispatcher.forward(req,resp);
     }
+
 }
