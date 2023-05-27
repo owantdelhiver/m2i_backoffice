@@ -1,6 +1,6 @@
 body {
     background-color: #00174a;
-    background-image: url("/images/background-multi.jpg");
+    /*background-image: url("/images/background-multi.jpg");*/
 }
 
 header {
@@ -23,8 +23,24 @@ header {
 .btn-warning {
     background-color: #00174a;
     border: #97ff94;
-    color:#97ff94;
+    color:white;
 }
+
+.btn-primary {
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-left: 15px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.form-check-input:checked {
+    background-color: #00174a;
+    border-color: #00174a;
+}
+
+
 .filter-box {
     background-color: white;
 }
@@ -68,3 +84,16 @@ html{
 .card-body, .login-wrap {
     font-family: "Helvetica Neue Condensed", sans-serif;
 }
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    padding: 0 0 9px;
+}
+
+.search-icon {
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+}
+

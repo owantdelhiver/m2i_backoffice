@@ -15,21 +15,32 @@
         <div class="container mt-5">
             <div class="card">
                 <div class="card-body">
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                        <input type="search" class="form-control form-control-dark text-bg-light" placeholder="Search product name or id..." aria-label="Search">
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="${pageContext.request.contextPath}/products" method="post">
+                        <div class="d-flex">
+                            <input type="search" class="form-control form-control-dark text-bg-light" name="search" placeholder="Search product name or id..." aria-label="Search">
+                            <button class="search-button">
+                                <span class="search-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+                                </span>
+                            </button>
+                        </div>
                     </form>
-                    <c:forEach items="${categories}" var="categorie">
-                        <div class="form-check">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <label class="form-check-label justify-content-start" for="checkbox1">${categorie.name}</label>
-                                </div>
-                                <div class="col-auto">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkbox1">
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="${pageContext.request.contextPath}/products-filtered" method="post">
+                        <c:forEach items="${categories}" var="category">
+                            <div class="form-check">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <label class="form-check-label justify-content-start" for="checkbox${category.id}">${category.name}</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input class="form-check-input" type="checkbox" value="${category.id}" name="category" id="checkbox${category.id}">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </c:forEach>
+                        </c:forEach>
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                    </form>
                 </div>
             </div>
         </div>
