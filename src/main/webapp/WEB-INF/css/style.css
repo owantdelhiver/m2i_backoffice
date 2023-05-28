@@ -85,6 +85,9 @@ html{
     .id-column {
         display: none;
     }
+    .stock-column {
+        display:none;
+    }
 }
 
 @media (max-width: 768px) {

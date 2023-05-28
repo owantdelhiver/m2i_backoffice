@@ -51,44 +51,30 @@
                 <div class="card-body">
                     <div class="product-list-header d-flex">
                         <h4 class="card-title">Product list</h4>
-                        <a href="${pageContext.request.contextPath}/create-product" class="btn btn-success ms-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 class="bi bi-plus-square" viewBox="0 0 16 16">
-                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                            </svg>
-                            Add
-                        </a>
                     </div>
-
-                    <!-- Table with stripped rows -->
+                    <!-- Table with responsive class -->
+                    <div class="table-responsive">
                     <table class="table table-striped table-hover">
-                        <colgroup>
-                            <col class="col-1">
-                            <col class="col-2">
-                            <col class="col-5">
-                            <col class="col-1">
-                            <col class="col-1">
-                            <col class="col-3">
-                        </colgroup>
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th></th>
+                            <th class="id-column">#</th>
+                            <th>Pic</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Stock</th>
+                            <th class="unit-price-column">Price</th>
+                            <th class="stock-column">Stock</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${products}" var="product">
                             <tr>
-                                <th>${product.id}</th>
-                                <th><img src="http://localhost:8080/api/img/product/${product.id}"></th>
+                                <td class="id-column">${product.id}</td>
+                                <td>
+                                    <img src="http://localhost:8080/api/img/product/${product.id}" alt="Logo" style="max-height: 7em; max-width: 100%;">
+                                </td>
                                 <td>${product.name}</td>
-                                <td>${product.price}€</td>
-                                <td>${product.stock}</td>
+                                <td class="unit-price-column">${product.price}€</td>
+                                <td class="stock-column">${product.stock}</td>
                                 <td class="edit-button">
                                     <div class="btn-group">
                                         <a href="${pageContext.request.contextPath}/edit-product?id=${product.id}" class="btn btn-warning">
@@ -116,10 +102,12 @@
                                         </ul>
                                     </div>
                                 </td>
+
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
+                    </div>
                     <!-- End Table with stripped rows -->
 
                 </div>
