@@ -16,7 +16,7 @@
             </div>
             <div class="login-wrap p-4 p-md-5">
                 <div class="text-center">
-                    <h3 class="mb-4">Se connecter</h3>
+                    <h3 class="mb-4">Admin Portal</h3>
                 </div>
                 <form action="${pageContext.request.contextPath}/login" method="post">
                     <div class="form-floating mt-5 mb-5">
@@ -28,7 +28,7 @@
                         <label class="form-control-placeholder" for="password">Password</label>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Se connecter</button>
+                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
                     </div>
                 </form>
             </div>
