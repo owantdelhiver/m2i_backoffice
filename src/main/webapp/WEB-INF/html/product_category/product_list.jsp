@@ -65,7 +65,8 @@
                     <table class="table table-striped table-hover">
                         <colgroup>
                             <col class="col-1">
-                            <col class="col-7">
+                            <col class="col-2">
+                            <col class="col-5">
                             <col class="col-1">
                             <col class="col-1">
                             <col class="col-3">
@@ -73,6 +74,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
+                            <th></th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Stock</th>
@@ -83,6 +85,7 @@
                         <c:forEach items="${products}" var="product">
                             <tr>
                                 <th>${product.id}</th>
+                                <th><img src="http://localhost:8080/api/img/product/${product.id}"></th>
                                 <td>${product.name}</td>
                                 <td>${product.price}€</td>
                                 <td>${product.stock}</td>
