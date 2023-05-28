@@ -20,7 +20,8 @@ public class LoginFilter extends HttpFilter {
         HttpSession httpSession = httpServletRequest.getSession();
 
         ((HttpServletResponse) res).addHeader("Access-Control-Allow-Origin", "http://localhost:8081");
-
+        ((HttpServletResponse) res).addHeader("Access-Control-Allow-Headers", "origin, content-type, accept");
+        ((HttpServletResponse) res).addHeader("Access-Control-Allow-Methods", "GET, POST");
 
         if(httpServletRequest.getRequestURI().equals(httpServletRequest.getContextPath() + "/login")
                 || httpServletRequest.getRequestURI().contains(httpServletRequest.getContextPath() + "/api")
