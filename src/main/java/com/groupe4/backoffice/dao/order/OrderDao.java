@@ -40,7 +40,25 @@ public class OrderDao implements GenericDAO<Order> {
 
     @Override
     public Order fetchById(Long id) {
-        return null;
+        Connection connection = DB.getConnection();
+        Order order = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM orders WHERE id = ?"))
+        {
+            preparedStatement.setInt(1, Math.toIntExact(id));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                order =
+                        new Order(
+                                resultSet.getInt("id"),
+                                resultSet.getDate("date"),
+                                OrderStatus.getFromLabel(resultSet.getString("status"))
+                        );
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return order;
     }
 
     @Override
