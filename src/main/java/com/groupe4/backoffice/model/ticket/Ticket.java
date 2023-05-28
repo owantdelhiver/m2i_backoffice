@@ -3,13 +3,15 @@ public class Ticket {
 
         private int id;
         private String email;
+        private int adminId;
         private String message;
 
         public Ticket() {
         }
 
-        public Ticket(String email, String message) {
+        public Ticket(String email,int adminId, String message) {
             this.email = email;
+            this.adminId = adminId;
             this.message = message;
         }
 
@@ -21,13 +23,21 @@ public class Ticket {
             this.email = email;
         }
 
-        public String getMessage() {
-            return message;
+        public int getAdminId() {
+            return adminId;
         }
 
-        public void setMessage(String message) {
-            this.message = message;
+        public void setAdminId(int adminId) {
+            this.adminId = adminId;
         }
-    }
+
+        public String getMessage() {
+                return message;
+            }
+
+            public void setMessage(String message) {
+                this.message = message;
+            }
+        }
 
 

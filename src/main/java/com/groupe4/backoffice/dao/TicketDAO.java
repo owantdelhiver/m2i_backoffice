@@ -12,9 +12,10 @@ public class TicketDAO implements GenericDAO<Ticket> {
     @Override
     public int create(Ticket ticket) {
         Connection connection = DB.getConnection();
-try(PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ticket(email, message) values (?,?)", Statement.RETURN_GENERATED_KEYS)){
+try(PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ticket(email,admin_id, message) values (?,?,?)", Statement.RETURN_GENERATED_KEYS)){
     preparedStatement.setString(1,ticket.getEmail());
-    preparedStatement.setString(2, ticket.getMessage());
+    preparedStatement.setInt(2,ticket.getAdminId());
+    preparedStatement.setString(3, ticket.getMessage());
     preparedStatement.execute();
 
 } catch (SQLException e) {
@@ -33,6 +34,7 @@ try(PreparedStatement preparedStatement = connection.prepareStatement("INSERT IN
                     tickets.add(
                             new Ticket(
                                     resultSet.getString("email"),
+                                    resultSet.getInt("admin_id"),
                                     resultSet.getString("message")
                             )
                     );
