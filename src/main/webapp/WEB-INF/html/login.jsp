@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="include/head.jsp" />
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-7 col-lg-5 mt-5">
+<div class=" row justify-content-center mt-5">
+    <div class="main-block col-md-7 col-lg-5 mt-5">
         <div class="wrap" style="background-color: white; border-radius: 25px">
             <div class="d-flex justify-content-center pt-5">
                 <img src="${pageContext.request.contextPath}/images/logo1200.png">

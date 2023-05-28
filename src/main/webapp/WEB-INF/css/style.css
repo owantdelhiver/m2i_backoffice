@@ -35,6 +35,11 @@ header {
     border-radius: 10px;
 }
 
+.btn-primary:hover {
+    background-color: #00174a;
+    color: white;
+}
+
 .form-check-input:checked {
     background-color: #00174a;
     border-color: #00174a;
@@ -149,5 +154,9 @@ html{
     background-color: white;
     padding: 5px;
     border-radius: 50%;
+}
+
+.main-block {
+    margin-bottom: 90px;
 }
 
