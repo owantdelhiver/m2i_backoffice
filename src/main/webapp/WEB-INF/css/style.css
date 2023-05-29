@@ -193,3 +193,17 @@ html{
 .card {
     border-radius: 10px;
 }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Adjust the height of the parent container as needed */
+}
+
+.image-container img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
