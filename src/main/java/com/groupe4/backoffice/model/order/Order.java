@@ -37,4 +37,16 @@ public class Order {
     public List<OrderLine> getOrderLines() {
         return orderLines;
     }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public void setOrderLines(List<OrderLine> orderLines) {
+        this.orderLines = orderLines;
+    }
 }

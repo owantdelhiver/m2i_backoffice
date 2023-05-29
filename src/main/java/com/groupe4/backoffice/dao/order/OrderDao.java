@@ -24,7 +24,7 @@ public class OrderDao implements GenericDAO<Order> {
                         new Order(
                                resultSet.getInt("id"),
                                 resultSet.getDate("date"),
-                                OrderStatus.getFromLabel(resultSet.getString("status"))
+                                OrderStatus.valueOf(resultSet.getString("status"))
                         ));
 
             }
@@ -40,12 +40,38 @@ public class OrderDao implements GenericDAO<Order> {
 
     @Override
     public Order fetchById(Long id) {
-        return null;
+        Connection connection = DB.getConnection();
+        Order order = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM orders WHERE id = ?"))
+        {
+            preparedStatement.setInt(1, Math.toIntExact(id));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                order =
+                        new Order(
+                                resultSet.getInt("id"),
+                                resultSet.getDate("date"),
+                                OrderStatus.valueOf(resultSet.getString("status"))
+                        );
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return order;
     }
 
     @Override
     public void update(Order obj) {
+        Connection connection = DB.getConnection();
+        try(PreparedStatement preparedStatement = connection.prepareStatement("UPDATE orders SET status = ? WHERE id = ?")) {
+            preparedStatement.setString(1, obj.getOrderStatus().toString());
+            preparedStatement.setInt(2, obj.getId());
 
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

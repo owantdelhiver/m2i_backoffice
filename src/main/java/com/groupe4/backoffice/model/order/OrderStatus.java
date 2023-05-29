@@ -21,5 +21,7 @@ public enum OrderStatus {
         return null;
     }
 
-
+    public String getLabel() {
+        return label;
+    }
 }

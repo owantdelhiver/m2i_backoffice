@@ -14,6 +14,7 @@
             </a>
             <ul class="nav col-12 col-lg-auto me-lg mb-2 justify-content-end mb-md-0 ms-auto">
                 <li><a href="${pageContext.request.contextPath}/" class="nav-link px-2 text-dark">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/orders" class="nav-link px-2 text-dark" >Orders</a></li>
                 <li><a href="${pageContext.request.contextPath}/products" class="nav-link px-2 text-dark" >Product</a></li>
                 <li><a href="${pageContext.request.contextPath}/categories" class="nav-link px-2 text-dark" >Category</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout" class="nav-link px-2 text-dark" >Logout</a></li>
