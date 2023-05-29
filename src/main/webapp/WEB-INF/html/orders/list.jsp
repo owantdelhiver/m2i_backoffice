@@ -74,7 +74,7 @@
               <tr>
                 <th>${order.id}</th>
                 <th>${order.date}</th>
-                <td>${order.orderStatus}</td>
+                <td>${order.orderStatus.label}</td>
                 <td class="edit-button">
                   <div class="btn-group">
                     <a href="${pageContext.request.contextPath}/order?id=${order.id}" class="btn btn-warning">

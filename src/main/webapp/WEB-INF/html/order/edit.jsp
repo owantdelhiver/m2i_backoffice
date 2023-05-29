@@ -28,11 +28,11 @@
                         <input type="date" class="form-control" id="orderDate" name="orderDate" value="${order.date}">
 
 
-                        <label for="productCategoryId" class="form-label">Category name</label>
-                        <select name="productCategoryId" id="productCategoryId">
+                        <label for="orderStatus" class="form-label">Status </label>
+                        <select name="orderStatus" id="orderStatus">
                             <jsp:useBean id="status" scope="request" type="java.util.List"/>
                             <c:forEach var="state"  items="${status}" >
-                                <option value="${state}" <c:if test="${state == order.orderStatus}">selected</c:if>> ${state} </option>
+                                <option value="${state.label}" <c:if test="${state == order.orderStatus}">selected</c:if>> ${state.label} </option>
                             </c:forEach>
                         </select>
 

@@ -40,9 +40,10 @@ public class OrderServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         Order order = new OrderDao().fetchById((long) id);
 
+        String statusLabel = req.getParameter("orderStatus");
+        order.setOrderStatus(OrderStatus.getFromLabel(statusLabel));
 
-
-        order.setOrderStatus(OrderStatus.valueOf(req.getParameter("status")));
+        new OrderDao().update(order);
 
         resp.sendRedirect("/orders");
     }
