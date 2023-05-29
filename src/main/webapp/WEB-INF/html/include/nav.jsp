@@ -13,7 +13,6 @@
                 <img src="${pageContext.request.contextPath}/images/LogoBack.png" width="100px" height="61px"  alt="Icon">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg mb-2 justify-content-end mb-md-0 ms-auto">
-                <li><a href="${pageContext.request.contextPath}/" class="nav-link px-2">Home</a></li>
                 <li><a href="${pageContext.request.contextPath}/orders" class="nav-link px-2" >Orders</a></li>
                 <li><a href="${pageContext.request.contextPath}/products" class="nav-link px-2" >Product</a></li>
                 <li><a href="${pageContext.request.contextPath}/categories" class="nav-link px-2" >Category</a></li>
