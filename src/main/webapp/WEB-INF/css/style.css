@@ -1,6 +1,7 @@
 body {
     /*background-color: #00174a;*/
     background-image: url("/images/background2.png");
+    background-size: cover;
 }
 
 header {
