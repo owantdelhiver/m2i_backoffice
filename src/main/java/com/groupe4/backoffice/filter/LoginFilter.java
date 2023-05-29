@@ -25,6 +25,7 @@ public class LoginFilter extends HttpFilter {
 
         if(httpServletRequest.getRequestURI().equals(httpServletRequest.getContextPath() + "/login")
                 || httpServletRequest.getRequestURI().contains(httpServletRequest.getContextPath() + "/api")
+                || httpServletRequest.getRequestURI().contains(httpServletRequest.getContextPath() + "/images")
         ) {
             chain.doFilter(req, res);
         } else {
