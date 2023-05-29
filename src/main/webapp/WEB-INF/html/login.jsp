@@ -10,7 +10,7 @@
 
 <div class=" row justify-content-center mt-5">
     <div class="main-block col-md-7 col-lg-5 mt-5">
-        <div class="wrap" style="background-color: white; border-radius: 25px">
+        <div class="form-wrap wrap" style="background-color: white;">
             <div class="d-flex justify-content-center pt-5">
                 <img src="${pageContext.request.contextPath}/images/logo1200.png">
             </div>
@@ -28,7 +28,7 @@
                         <label class="form-control-placeholder" for="password">Password</label>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
+                        <button type="submit" class="form-control btn btn-warning rounded submit px-3">Login</button>
                     </div>
                 </form>
             </div>
