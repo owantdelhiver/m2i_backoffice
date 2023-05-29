@@ -198,7 +198,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px; /* Adjust the height of the parent container as needed */
+    height: 400px;
 }
 
 .image-container img {
