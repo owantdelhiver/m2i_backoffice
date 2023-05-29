@@ -18,7 +18,7 @@
         <div class="card">
             <div class="card-body">
                 <h4>Edit Order ${order.id}</h4>
-                <form method="post" action="${pageContext.request.contextPath}/order/edit?id=${order.id}">
+                <form method="post" action="${pageContext.request.contextPath}/order?id=${order.id}">
                     <div class="mb-3">
 
                         <label for="orderId" class="form-label">Id</label>
